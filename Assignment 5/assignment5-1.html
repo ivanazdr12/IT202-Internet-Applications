@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Application</title>
+    <script type="text/javascript" src="assignment5.js"></script>
+    <link rel="stylesheet" type="text/css" href="assignment5.css">
+</head>
+<body onload="retrieveNames()">
+    <div class="container">
+        <h1 style="text-align: center"><br>Chat Application</h1>
+        <h5 style="margin-left: 55px;">Online Users: <span id="names"></span></h5>
+        <div class="chatc chat1">
+            <label for="name1">Enter your Name:</label>
+            <input style="margin-bottom: 10px;" name="name1" id="name1" type="text"><br>
+            <label for="password">Enter your Password:</label>
+            <input style="margin-bottom: 10px;" name="password" id="password" type="text"><br>
+            <label for="content">Message is sent as typed</label><br>
+            <textarea style="margin-bottom: 10px;" onkeyup="populateMessage(document.getElementById('name1').value, document.getElementById('password').value, this.value)" name="content" id="content1" cols="30" rows="8"></textarea><br>
+            <input name="error" id="error" type="text">
+        </div>
+        <div class="chatc chat2">
+            <label for="name2">Enter a valid name and retrieve chat on LISTEN button</label>
+            <input name="name2" id="name2" type="text">
+            <button id="myBtn" onclick="listenButton(document.getElementById('name2').value)">Listen</button>
+            <textarea style="float: right; margin-top: 10px;" name="content2" id="content2" cols="30" rows="8"></textarea>
+        </div>
+    </div>
+</body>
+</html>
+
+
