@@ -1,0 +1,148 @@
+<html>
+
+<head>
+  <title>House Hunter's Realty System</title>
+  <link href="style.css" rel="stylesheet">
+  
+  <script type = "text/javascript">
+         
+  function validate() {
+     
+     var emailID = document.myForm.email.value;
+     atpos = emailID.indexOf("@");
+     dotpos = emailID.lastIndexOf(".");
+  
+     if( document.myForm.realtor_first.value == "" ) {
+        alert( "Please provide the Realtor First Name!" );
+        document.myForm.realtor_first.focus() ;
+        return false;
+     }
+     if( document.myForm.realtor_last.value == "" ) {
+        alert( "Please provide the Realtor Last Name!" );
+        document.myForm.realtor_last.focus() ;
+        return false;
+     }
+     
+     if( document.myForm.realtor_id.value == "" ) {
+        alert( "Please provide the Realtor ID!" );
+        document.myForm.realtor_id.focus() ;
+        return false;
+     }
+     
+     if ((document.myForm.realtor_id.value).length != 8){
+        alert( "Your ID must have 8 digits.");
+        document.myForm.realtor_id.focus();
+        return false;
+     }
+     
+     if( !document.myForm.realtor_password.value.match(/[a-z]/) ) {
+        alert( "Password must contain at least one lower case letter." );
+        document.myForm.realtor_password.focus();
+        return false;
+     }
+     
+     if ((document.myForm.realtor_password.value).length > 8){
+        alert( "Error. Your password cannot have more than 8 characters.");
+        document.myForm.realtor_password.focus();
+        return false;
+     }
+     
+     if ( !document.myForm.realtor_password.value.match(/[A-Z]/)) {
+        alert("Password must contain at least one upper case letter.");
+        document.myForm.realtor_password.focus();
+        return false;
+    }
+    
+     if ( !document.myForm.realtor_password.value.match(/\d+/g)) {
+        alert("Password must contain at least one number.");
+        document.myForm.realtor_password.focus();
+        return false;
+    }
+    
+    if( document.myForm.checkbox.checked && document.myForm.email.value == ""){
+     alert( "Please enter your email.");
+     document.myForm.email.focus();
+     return false;
+    }
+    
+    if ( document.myForm.checkbox.checked && (atpos < 1 || (dotpos - atpos < 2)) ){
+     alert( "Please enter the correct email ID. It must contain an @ and a period.");
+     document.myForm.email.focus();
+     return false;
+    }
+    
+    return (true);
+  }
+  
+ 
+</script>
+</head>
+
+<body>
+  <form action="checkingform.php" name = "myForm" method="POST" onsubmit="return validate()">
+     <table cellspacing = "2" cellpadding = "2" border = "1">
+        <tr>
+           <h2>House Hunter's Realty System</h2>
+        
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor First Name:</td>
+           <td><input type = "text" name = "realtor_first" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Last Name:</td>
+           <td><input type = "text" name = "realtor_last" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor ID:</td>
+           <td><input type = "number" id="realtor_id" name = "realtor_id" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Password:</td>
+           <td><input type = "password" id="realtor_password" name = "realtor_password" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Email:</td>
+           <td><input type = "text" name = "email" /></td>
+        </tr>
+
+        <tr>
+           <td align = "right">Select a transaction:</td>
+           <td>
+            
+              <select name = "opt" id="opt">           
+                 <option value = "add">Schedule a Showing/Listing Appointment</option>
+                 <option value = "remove">Cancel a Showing/Listing</option>
+                 <option value = "view">Search for a Realtor's Schedule</option>
+                 <option value = "create">Register/Create an Account</option>
+              </select>
+            
+            
+           </td>
+        </tr>
+        
+        <tr>
+           <td align = "right"></td>
+           <td><input type = "checkbox" name="checkbox" checked="checked" value="some text" /> Email me a transaction confirmation</td>
+        </tr>
+        
+        <tr>
+           <td align = "right"></td>
+           <td><input type = "submit" name = "submit" /></td>
+        </tr>
+     </table>
+  </form>
+  
+<h3>Password must contain the following:</h3>
+<p>A <b>lowercase</b> letter</p>
+<p>A <b>capital (uppercase)</b> letter</p>
+<p>A <b>number</b></p>
+<p>Maximum <b>8 characters</b></p>
+  
+</body>
+</html>
