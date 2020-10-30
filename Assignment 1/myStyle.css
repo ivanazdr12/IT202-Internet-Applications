@@ -1,0 +1,58 @@
+/* myStyle.css */
+body {
+ background-color: #b7bbdb;
+ color: #484424;
+}
+h1 {
+ color: #23549d;
+ text-align: center;
+ font: italic 200% sans-serif;
+}
+h3 {
+ font-family: Monaco;
+ text-decoration: underline;
+ margin: 50px;
+}
+h2 {
+ text-align: left;
+ margin: 50px;
+ color: #23549d
+}
+h2.headertext{
+ text-align: center;
+}
+p {
+ background-color: #b7bbdb;
+ color: #333300;
+ text-align: center;
+ font-family: Monaco;
+ margin: 50px;
+}
+table {
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+th{
+ background-color: #8188c0;
+}
+img {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 5px;
+}
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+a:link {
+  text-decoration: none;
+  color: #000000;
+  font-family: Monaco;
+  margin: 50px;
+}
+ul,ol {
+ margin: 50px;
+}
