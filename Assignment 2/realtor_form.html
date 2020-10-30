@@ -1,0 +1,176 @@
+<html>
+
+<head>
+  <title>House Hunter's Realty System</title>
+  <link href="style.css" rel="stylesheet">
+  
+  <script type = "text/javascript">
+     
+     
+  function validate() {
+     
+     var emailID = document.myForm.email.value;
+     atpos = emailID.indexOf("@");
+     dotpos = emailID.lastIndexOf(".");
+  
+     if( document.myForm.name.value == "" ) {
+        alert( "Please provide the Realtor Name!" );
+        document.myForm.name.focus() ;
+        return false;
+     }
+     
+     if( document.myForm.id.value == "" ) {
+        alert( "Please provide the Realtor ID!" );
+        document.myForm.id.focus() ;
+        return false;
+     }
+     
+     if ((document.myForm.id.value).length != 8){
+        alert( "Your id must have 8 digits.");
+        document.myForm.id.focus();
+        return false;
+     }
+     
+     if( !document.myForm.password.value.match(/[a-z]/) ) {
+        alert( "Password must contain at least one lower case letter." );
+        document.myForm.password.focus();
+        return false;
+     }
+     
+     if ((document.myForm.password.value).length > 8){
+        alert( "Your password has more than 8 characters.");
+        document.myForm.password.focus();
+        return false;
+     }
+     
+     if (!document.myForm.password.value.match(/[A-Z]/)) {
+        alert("Password must contain at least one upper case letter.");
+        document.myForm.password.focus();
+        return false;
+    }
+    
+     if (!document.myForm.password.value.match(/\d+/g)) {
+        alert("Password must contain at least one number.");
+        document.myForm.password.focus();
+        return false;
+    }
+    
+    if( document.myForm.checkbox.checked && document.myForm.email.value == ""){
+     alert( "Please enter your email");
+     document.myForm.email.focus();
+     return false;
+    }
+    
+    if ( document.myForm.checkbox.checked && (atpos < 1 || (dotpos - atpos < 2)) ){
+     alert( "Please enter the correct email ID. It must contain an @ and a period.");
+     document.myForm.email.focus();
+     return false;
+    }
+    
+    
+    realtors();
+    verify();
+    return (true);
+  }
+  
+  function realtors(name,id,password){
+    this.name=name;
+    this.id=id;
+    this.passowrd=password;
+  }
+   
+  
+  function verify() {
+    
+    var realtor1= new realtor("John","12345678","John1234");
+    var realtor2= new realtor("Andrea","98765432","Andrea12");
+    var realtor3= new realtor("Jessica","11111111","Jessica1");
+    var realtor4= new realtor("Peter","22222222","Peter123");
+    var realtor5= new realtor("Phillip","33333333","Phillip1");
+    var realtor6= new realtor("Jordan","44444444","Jordan12");
+    
+    var realtor_array = [realtor1,realtor2,realtor3,realtor4,realtor5,realtor6];
+    
+    var input_name = document.getElementById("name").value;
+    var input_id = document.getElementById("id").value;   
+    var input_password = document.getElementById("password").value;
+     
+    var realtors = new realtors(input_name,input_id,input_password);
+     
+    for(i=0; i<realtors.length; i++){
+      if(input_name != realtors[i].name && input_id != realtors[i].id && input_password != realtors[i].password){
+        for(i=0; i<realtor_array.length; i++){
+          alert("User not found");
+        } 
+      }
+      else{
+        alert("User found. Welcome!");
+      }
+    }
+  }
+ 
+</script>
+</head>
+
+<body>
+  <form action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate() && realtors() && verify());">
+     <table cellspacing = "2" cellpadding = "2" border = "1">
+        <tr>
+           <h2>House Hunter's Realty System</h2>
+        
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Name:</td>
+           <td><input type = "text" name = "name" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor ID:</td>
+           <td><input type = "number" name = "id" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Password:</td>
+           <td><input type = "password" id="password" name = "password" /></td>
+        </tr>
+        
+        <tr>
+           <td align = "right">Realtor Email:</td>
+           <td><input type = "text" name = "email" /></td>
+        </tr>
+
+        <tr>
+           <td align = "right">Select a transaction:</td>
+           <td>
+              <select name = "Transaction">
+                 <option value = "-1" selected>Select from the following:</option>
+                 <option value = "1">Schedule a Showing</option>
+                 <option value = "2">Remove a Showing</option>
+                 <option value = "3">Search Realtor's Schedule</option>
+                 <option value = "4">Register/Create a New Account</option>
+              </select>
+           </td>
+        </tr>
+        
+        <tr>
+           <td align = "right"></td>
+           <td><input type = "checkbox" name="checkbox" checked="checked" value="some text" /> Email me a transaction confirmation</td>
+        </tr>
+        
+        <tr>
+           <td align = "right"></td>
+           <td><input type = "submit" value = "Submit" /></td>
+        </tr>
+     </table>
+  </form>
+  
+
+<h3>Password must contain the following:</h3>
+<p>A <b>lowercase</b> letter</p>
+<p>A <b>capital (uppercase)</b> letter</p>
+<p>A <b>number</b></p>
+<p>Maximum <b>8 characters</b></p>
+  
+</body>
+</html>

@@ -1,0 +1,30 @@
+h1, h2, h3 {
+  margin: 0.8em 0 0.2em 0; }
+
+h1, h2, h3, h4 { color : #000; background : #B0E0E6; }
+
+FORM { border : solid gray 2px; padding : 3px; }
+form, input.radio { background : #D5E6F2;   color : #000; }
+
+input:focus, textarea:focus, select:focus, input:hover
+  { background : #B0E0E6;
+    color : black; }
+input[type="submit"]:hover { background: #B0E0E6;
+                             color: #660462; }
+input[type="submit"]:active { outline-color: green;
+                              color: green;
+                              background: #ffc; }
+input, button { font-size: 100%; } 
+
+h1, h2, h3, h4, h5, h6, .h7 {
+  font-weight: normal;
+}
+
+h1, h2, h3 {
+  font-family : Calibri, Helvetica, Arial, sans-serif; }
+
+BODY    { margin: 0 0 0 0.0;
+          padding: 0.4em 0.4em 0.4em 0.6em; }
+
+
+
